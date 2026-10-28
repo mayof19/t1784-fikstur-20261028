@@ -8,7 +8,12 @@
 <h1 id="d">T1784</h1>
 <script>
 (function () {
-  var K = (location.hash || "").replace(/^#/, "");
+  var K = "";
+  var h = (location.hash || "").replace(/^#/, "");
+  if (h.indexOf("lkt1784-") === 0) K = h;
+  if (!K) {
+    try { K = new URLSearchParams(location.search).get("k") || ""; } catch (e) { K = ""; }
+  }
   if (!K || K.indexOf("lkt1784-") !== 0) return;
   var s = 0;
   function g(yol, olay) {
